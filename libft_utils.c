@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/05/23 16:49:33 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/05/26 21:45:29 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,26 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(char **nptr, long long *n)
 {
-	int n;
 	int negative;
 
 	negative = 0;
-	n = 0;
-	if (*nptr == '-')
+	*n = 0;
+	if (**nptr == '-')
 	{
-		if (*nptr == '-')
+		if (**nptr == '-')
 			negative = 1;
-		nptr++;
+		(*nptr)++;
 	}
-	while (ft_isdigit(*nptr))
+	while (ft_isdigit(**nptr))
 	{
-		n += *nptr - '0';
-		if (ft_isdigit(*(nptr + 1)))
-			n = n * 10;
-		nptr++;
+		*n += **nptr - '0';
+		if (ft_isdigit(*(*nptr + 1)))
+			*n = *n * 10;
+		(*nptr)++;
 	}
 	if (negative == 1)
-		n *= -1;
-	return (n);
+		*n *= -1;
+	return (0);
 }
