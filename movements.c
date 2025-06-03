@@ -6,25 +6,39 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:49:50 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/05/29 16:08:46 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:57:46 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **stack)
+void	swap(t_list **stack1, t_list **stack2, int a)
 {
 	t_list	*first;
 	t_list	*second;
 
-	if (!stack)
-		return ;
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
-	write(1, "")
+	if (a == 1 || a == 3)
+	{
+		first = *stack1;
+		second = first->next;
+		first->next = second->next;
+		second->next = first;
+		*stack1 = second;
+	}
+	else if (a == 2 || a == 3)
+	{
+		first = *stack2;
+		second = first->next;
+		first->next = second->next;
+		second->next = first;
+		*stack2 = second;
+	}
+	if (a == 1)
+		write (1, "sa", 2);
+	else if (a == 2)
+		write (1, "sb", 2);
+	else
+		write (1, "ss", 2);
 }
 
 void	push(t_list **stack1, t_list **stack2)

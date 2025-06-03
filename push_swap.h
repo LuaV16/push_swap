@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:24:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/02 13:22:42 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:16:12 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ int					ft_num_list(char *argv[], int count, int **num_list);
 int					ft_check_list(int *list, int count);
 t_list	*ft_lstnew(void *content, int key);
 t_list	*ft_lstlast(t_list *lst);
+void	swap(t_list **stack1, t_list **stack2, int a);
+void ft_fill_stack_a(int *list, int size, t_list **lst);
+void	ft_sort(t_list **stack1, t_list **stack2);
+int	ft_lstsize(t_list *lst);
 
 #endif
