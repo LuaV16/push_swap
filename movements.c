@@ -24,6 +24,7 @@ void	swap(t_list **stack)
 	first->next = second->next;
 	second->next = first;
 	*stack = second;
+	write(1, "")
 }
 
 void	push(t_list **stack1, t_list **stack2)

@@ -32,7 +32,7 @@ int					ft_count_numbers(char *argv[]);
 int					ft_fill_list(char *argv[], int **num_list);
 int					ft_num_list(char *argv[], int count, int **num_list);
 int					ft_check_list(int *list, int count);
-t_list				*ft_lstnew(void *content);
-t_list				*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(void *content, int key);
+t_list	*ft_lstlast(t_list *lst);
 
 #endif

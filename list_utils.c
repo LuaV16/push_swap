@@ -61,6 +61,23 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	ptr->next = new;
 }
 
+int	ft_lstsize(t_list *lst)
+{
+	int	n;
+
+	n = 0;
+	if (!lst)
+	{
+		return (n);
+	}
+	while (lst != NULL)
+	{
+		n++;
+		lst = lst->next;
+	}
+	return (n);
+}
+
 void ft_fill_stack_a(int *list, int size, t_list **lst)
 {
 	t_list *node;
@@ -71,6 +88,32 @@ void ft_fill_stack_a(int *list, int size, t_list **lst)
 	{
 		node = ft_lstnew(&list[i], -1);
 		ft_lstadd_back(lst, node);
+		i++;
+	}
+}
+
+void ft_fill_key(t_list **lst)
+{
+	int i;
+	t_list *save;
+	t_list *min_node;
+
+	i = 0;
+	while (i < ft_lstsize(*lst))
+	{
+		min_node = NULL;
+		save = *lst;
+		while (save != NULL)
+		{
+			if (save->key == -1)
+			{
+				if (!min_node || save->content < min_node->content)
+					min_node = save;
+			}
+			save = save->next;
+		}
+		if (min_node)
+			min_node->key = i;
 		i++;
 	}
 }
