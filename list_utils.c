@@ -6,13 +6,13 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:42:27 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/02 14:09:40 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/05 01:06:23 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(void *content, int key)
+t_list	*ft_lstnew(int content, int key)
 {
 	t_list	*new_node;
 
@@ -78,42 +78,19 @@ int	ft_lstsize(t_list *lst)
 	return (n);
 }
 
-void ft_fill_stack_a(int *list, int size, t_list **lst)
+void	ft_lstclear(t_list **lst)
 {
-	t_list *node;
-	int i;
-	
-	i = 0;
-	while(i < size)
-	{
-		node = ft_lstnew(&list[i], -1);
-		ft_lstadd_back(lst, node);
-		i++;
-	}
-}
+	t_list	*temp;
 
-void ft_fill_key(t_list **lst)
-{
-	int i;
-	t_list *save;
-	t_list *min_node;
-
-	i = 0;
-	while (i < ft_lstsize(*lst))
+	if (!lst)
 	{
-		min_node = NULL;
-		save = *lst;
-		while (save != NULL)
-		{
-			if (save->key == -1)
-			{
-				if (!min_node || save->content < min_node->content)
-					min_node = save;
-			}
-			save = save->next;
-		}
-		if (min_node)
-			min_node->key = i;
-		i++;
+		return ;
 	}
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
+	}
+	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/05/27 12:02:56 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/05 01:19:12 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,21 @@ int	ft_atoi(char **nptr, long long *n)
 	if (negative == 1)
 		*n *= -1;
 	return (0);
+}
+
+int	ft_sqrt(int n)
+{
+	int	i;
+
+	if (n < 4)
+		return (1);
+	i = 2;
+	while (i * i < n)
+		i++;
+	if (i * i > n)
+	{
+		if ((i * i - n) < (n - (i - 1) * (i - 1)))
+    		return (i);
+	}
+	return (i - 1);
 }

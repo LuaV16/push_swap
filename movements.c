@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:49:50 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/03 12:57:46 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/07 20:28:17 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	swap(t_list **stack1, t_list **stack2, int a)
 		second->next = first;
 		*stack1 = second;
 	}
-	else if (a == 2 || a == 3)
+	if (a == 2 || a == 3)
 	{
 		first = *stack2;
 		second = first->next;
@@ -34,49 +34,72 @@ void	swap(t_list **stack1, t_list **stack2, int a)
 		*stack2 = second;
 	}
 	if (a == 1)
-		write (1, "sa", 2);
+		write (1, "sa\n", 3);
 	else if (a == 2)
-		write (1, "sb", 2);
+		write (1, "sb\n", 3);
 	else
-		write (1, "ss", 2);
+		write (1, "ss\n", 3);
 }
 
-void	push(t_list **stack1, t_list **stack2)
+void	push(t_list **stack_src, t_list **stack_dest, int a)
 {
-	t_list	*stack2_second;
-
-	if (!stack1 || !stack2)
-		return ;
-	stack2_second = (*stack2)->next;
-	(*stack2)->next = *stack1;
-	*stack1 = *stack2;
-	*stack2 = stack2_second;
+	t_list	*stack_src_second;
+	
+	if (!(*stack_src))
+		return;
+	stack_src_second = (*stack_src)->next;
+	(*stack_src)->next = *stack_dest;
+	*stack_dest = *stack_src;
+	*stack_src = stack_src_second;
+	if (a == 1)
+		write (1, "pa\n", 3);
+	else if (a == 2)
+		write (1, "pb\n", 3);
 }
 
-void	rotate(t_list **stack)
+void	rotate(t_list **stack1, int a)
 {
+	t_list	*first;
 	t_list	*last;
-	t_list	*second;
 
-	last = ft_lstlast(*stack);
-	second = (*stack)->next;
-	last->next = *stack;
-	(*stack)->next = NULL;
-	*stack = second;
+	if (!(*stack1) || !(*stack1)->next)
+		return;
+	first = *stack1;
+	last = ft_lstlast(*stack1);
+	*stack1 = first->next;
+	first->next = NULL;
+	last->next = first;
+
+	if (a == 1)
+		write (1, "ra\n", 3);
+	else if (a == 2)
+		write (1, "rb\n", 3);
 }
 
-void	reverse_rotate(t_list **stack)
+void	reverse_rotate(t_list **stack1, t_list **stack2, int a, char *move)
 {
 	t_list	*last;
 	t_list	*second_last;
 
-	last = ft_lstlast(*stack);
-	second_last = *stack;
-	while (second_last->next != last)
+	if (a == 1 || a == 3)
 	{
-		second_last = second_last->next;
+		last = ft_lstlast(*stack1);
+		second_last = *stack1;
+		while (second_last->next != last)
+			second_last = second_last->next;
+		last->next = *stack1;
+		*stack1 = last;
+		second_last->next = NULL;
 	}
-	last->next = *stack;
-	*stack = last;
-	second_last->next = NULL;
+	if (a == 2 || a == 3)
+	{
+		last = ft_lstlast(*stack2);
+		second_last = *stack2;
+		while (second_last->next != last)
+			second_last = second_last->next;
+		last->next = *stack2;
+		*stack2 = last;
+		second_last->next = NULL;
+	}
+	write(1, move, 4);
 }
