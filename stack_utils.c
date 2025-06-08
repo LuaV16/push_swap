@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 00:39:21 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/08 00:12:59 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/09 00:01:21 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,22 @@ int	ft_is_sorted(t_list **stack1)
 		}
 	}
 	return (1);
+}
+
+int ft_get_min_key(t_list **stack)
+{
+	t_list *tmp;
+	int min_key;
+
+	if (*stack == NULL)
+		return (-1);
+	tmp = *stack;
+	min_key = tmp->key;
+	while (tmp != NULL)
+	{
+		if (tmp->key < min_key)
+			min_key = tmp->key;
+		tmp = tmp->next;
+	}
+	return (min_key);
 }

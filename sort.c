@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 13:26:56 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/08 00:26:05 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/09 00:27:21 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@ void ft_sort_three(t_list **stack1)
 		reverse_rotate(stack1, NULL, 1, "rra\n");
 	if ((*stack1)->key > (*stack1)->next->key)
 		swap(stack1, NULL, 1);		
+}
+
+void ft_simple_sort(t_list **stack1, t_list **stack2, int len)
+{
+	int iterations_count;
+	int n;
+	int min_key;
+
+	n = len;
+	iterations_count = 0;
+	while (iterations_count++ < len - 3)
+	{
+		min_key = ft_get_min_key(stack1);
+		if (ft_rotations_count(stack1, min_key) <= ft_lstsize(*stack1) - ft_rotations_count(stack1, min_key))
+			while ((*stack1)->key != min_key)
+				rotate(stack1, 1);
+		else
+			while ((*stack1)->key != min_key)
+				reverse_rotate(stack1, stack2, 1, "rra\n");
+		if (ft_is_sorted(stack1) && ft_lstsize(*stack2) == 0)
+			return ;
+		push(stack1, stack2, 2);
+		n--;
+	}
+	ft_sort_three(stack1);
+	iterations_count = 0;
+	while (iterations_count++ < len - 3)
+		push(stack2, stack1, 1);
 }
 
 void ft_ksort1(t_list **stack1, t_list **stack2)
@@ -100,6 +128,8 @@ void	ft_sort(t_list **stack1, t_list **stack2)
 		swap(stack1, NULL, 1);
 	else if (size == 3)
 		ft_sort_three(stack1);
+	else if (size <= 7)
+		ft_simple_sort(stack1, stack2, ft_lstsize(*stack1));
 	else
 	{
 		ft_ksort1(stack1, stack2);

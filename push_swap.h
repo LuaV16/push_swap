@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:24:08 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/07 21:14:50 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/09 00:01:38 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int					ft_check_list(int *list, int count);
 int ft_rotations_count(t_list **stack, int key);
 int					ft_lstsize(t_list *lst);
 int	ft_is_sorted(t_list **stack1);
+int ft_get_min_key(t_list **stack);
 void				swap(t_list **stack1, t_list **stack2, int a);
 void				push(t_list **stack1, t_list **stack2, int a);
 void	rotate(t_list **stack1, int a);
