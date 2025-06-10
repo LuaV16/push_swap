@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:24:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/08 17:49:23 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/14 13:42:53 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isspace(int c)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v')
-		return (1);
-	return (0);
+	unsigned long	i;
+	unsigned char	*ptrdest;
+	unsigned char	*ptrsrc;
+
+	if (dest == NULL && src == NULL)
+	{
+		return (NULL);
+	}
+	ptrdest = (unsigned char *)dest;
+	ptrsrc = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		*ptrdest = *ptrsrc;
+		ptrdest++;
+		ptrsrc++;
+		i++;
+	}
+	return (dest);
 }
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
-}
-
-
-

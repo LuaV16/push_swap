@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:24:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/19 20:06:33 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/19 20:17:23 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isspace(int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v')
-		return (1);
-	return (0);
+	if (!lst || !f)
+	{
+		return ;
+	}
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
-}
-
-
-

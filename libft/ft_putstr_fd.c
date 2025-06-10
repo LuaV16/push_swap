@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:24:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/18 18:11:12 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/18 18:47:10 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isspace(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v')
-		return (1);
-	return (0);
+	while (*s)
+	{
+		write(fd, &*s, 1);
+		s++;
+	}
 }
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
-}
-
-
-

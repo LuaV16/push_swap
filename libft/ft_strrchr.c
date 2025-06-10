@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:24:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/10 13:29:04 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/14 14:51:03 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isspace(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v')
-		return (1);
-	return (0);
+	char	*coincidence;
+	char	*ptr;
+
+	coincidence = NULL;
+	ptr = (char *)s;
+	while (1)
+	{
+		if ((unsigned char)*ptr == (unsigned char)c)
+		{
+			coincidence = ptr;
+		}
+		if (*ptr == '\0')
+			break ;
+		ptr++;
+	}
+	return (coincidence);
 }
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
-}
-
-
-

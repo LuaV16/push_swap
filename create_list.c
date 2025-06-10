@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:23:09 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/05/27 13:37:15 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/09 19:16:43 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	ft_fill_list(char *argv[], int **num_list)
 int	ft_num_list(char *argv[], int count, int **num_list)
 {
 	int			error;
-	long long	tmp;
 
 	*num_list = (int *)malloc(count * sizeof(int));
 	if (!*num_list)

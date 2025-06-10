@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 16:19:12 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:24:41 by lvargas-         ###   ########.fr       */
+/*   Created: 2025/04/14 16:49:08 by lvargas-          #+#    #+#             */
+/*   Updated: 2025/04/15 12:45:41 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isspace(int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v')
-		return (1);
-	return (0);
+	size_t	n;
+	size_t	i;
+
+	i = 0;
+	n = 0;
+	if (!*little)
+		return ((char *)big);
+	while (big[n] && n < len)
+	{
+		i = 0;
+		while (little[i] && (n + i) < len && big[n + i] == little[i])
+			i++;
+		if (!little[i])
+			return ((char *)(big + n));
+		n++;
+	}
+	return (NULL);
 }
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
-}
-
-
-

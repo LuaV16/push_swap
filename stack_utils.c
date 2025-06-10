@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 00:39:21 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 00:01:21 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:57:41 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void ft_fill_key(t_list **lst)
 	{
 		min_node = NULL;
 		save = *lst;
-		while (save != NULL)
+		while (save != NULL) 
 		{
 			if (save->key == -1)
 			{
