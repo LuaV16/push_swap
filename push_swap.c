@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:15:44 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:17:33 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/10 16:39:02 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	main(int argc, char *argv[])
 	int	*num_list;
 	t_list *stack_a;
 	t_list *stack_b;
-
+	
 	if (argc == 1)
 		return (0);
 	if (ft_check_errors(argc, argv, &num_list, &count) == -1)
-		return (-1);
+		return (free(num_list), -1);
 	stack_a = NULL;
 	stack_b = NULL;
 	ft_fill_stack_a(num_list, count, &stack_a);

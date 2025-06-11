@@ -1,18 +1,15 @@
 NAME = push_swap
 
-SRCS = create_list.c movements.c sort.c stack_utils.c push_swap.c
+SRCS = create_list.c movements.c sort.c stack_utils.c libft_utils.c \
+		list_utils.c push_swap.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_DIR)
-
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	make bonus -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
