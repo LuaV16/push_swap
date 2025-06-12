@@ -6,16 +6,16 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:15:44 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:17:33 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:35:02 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int ft_check_errors(int argc, char *argv[], int **num_list, int *count)
+int	ft_check_errors(int argc, char *argv[], int **num_list, int *count)
 {
-	int n;
+	int	n;
 
 	n = argc - 1;
 	while (n >= 1)
@@ -36,17 +36,17 @@ int ft_check_errors(int argc, char *argv[], int **num_list, int *count)
 	if (!(*num_list) || ft_check_list(*num_list, *count) == 1)
 	{
 		write(2, "Error\n", 6);
-		return (-1);
+		return (free (*num_list), *num_list = NULL, -1);
 	}
 	return (0);
 }
 
 int	main(int argc, char *argv[])
 {
-	int	count;
-	int	*num_list;
-	t_list *stack_a;
-	t_list *stack_b;
+	int		count;
+	int		*num_list;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (argc == 1)
 		return (0);

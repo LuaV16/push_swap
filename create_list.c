@@ -6,7 +6,7 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:23:09 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/09 19:16:43 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:42:38 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_fill_list(char *argv[], int **num_list)
 			{
 				ft_atoi(&argv[n], &tmp);
 				if (tmp > INT_MAX || tmp < INT_MIN)
-					return (1);
+					return (free(*num_list), *num_list = NULL, 1);
 				(*num_list)[i] = (int)tmp;
 				i++;
 			}
@@ -88,21 +88,21 @@ int	ft_fill_list(char *argv[], int **num_list)
 
 int	ft_num_list(char *argv[], int count, int **num_list)
 {
-	int			error;
+	int	error;
 
 	*num_list = (int *)malloc(count * sizeof(int));
 	if (!*num_list)
 		return (1);
 	error = ft_fill_list(argv, num_list);
 	if (error == 1)
-		return (free(*num_list), 1);
+		return (1);
 	return (0);
 }
 
 int	ft_check_list(int *list, int count)
 {
-	int n;
-	int i;
+	int	n;
+	int	i;
 
 	n = 0;
 	while (n < count)

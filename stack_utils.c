@@ -6,24 +6,24 @@
 /*   By: lvargas- <lvargas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 00:39:21 by lvargas-          #+#    #+#             */
-/*   Updated: 2025/06/10 12:57:41 by lvargas-         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:42:12 by lvargas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_fill_key(t_list **lst)
+void	ft_fill_key(t_list **lst)
 {
-	int i;
-	t_list *save;
-	t_list *min_node;
+	int		i;
+	t_list	*save;
+	t_list	*min_node;
 
 	i = 0;
 	while (i < ft_lstsize(*lst))
 	{
 		min_node = NULL;
 		save = *lst;
-		while (save != NULL) 
+		while (save != NULL)
 		{
 			if (save->key == -1)
 			{
@@ -38,13 +38,13 @@ void ft_fill_key(t_list **lst)
 	}
 }
 
-void ft_fill_stack_a(int *list, int size, t_list **lst)
+void	ft_fill_stack_a(int *list, int size, t_list **lst)
 {
-	t_list *node;
-	int i;
-	
+	t_list	*node;
+	int		i;
+
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		node = ft_lstnew(list[i], -1);
 		ft_lstadd_back(lst, node);
@@ -53,25 +53,25 @@ void ft_fill_stack_a(int *list, int size, t_list **lst)
 	ft_fill_key(lst);
 }
 
-int ft_rotations_count(t_list **stack, int key)
+int	ft_rotations_count(t_list **stack, int key)
 {
-    int count;
-    t_list *tmp;
+	int		count;
+	t_list	*tmp;
 
-    count = 0;
-    tmp = *stack;
-    while (tmp && tmp->key != key)
-    {
-        count++;
-        tmp = tmp->next;
-    }
-    return (count);
+	count = 0;
+	tmp = *stack;
+	while (tmp && tmp->key != key)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
 }
 
 int	ft_is_sorted(t_list **stack1)
 {
-	int	n;
-	t_list *tmp;
+	int		n;
+	t_list	*tmp;
 
 	tmp = *stack1;
 	n = tmp->key;
@@ -89,10 +89,10 @@ int	ft_is_sorted(t_list **stack1)
 	return (1);
 }
 
-int ft_get_min_key(t_list **stack)
+int	ft_get_min_key(t_list **stack)
 {
-	t_list *tmp;
-	int min_key;
+	t_list	*tmp;
+	int		min_key;
 
 	if (*stack == NULL)
 		return (-1);
